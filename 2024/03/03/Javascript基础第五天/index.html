@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            
+            JavaScript基础第四天
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -37,21 +37,21 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle"></h1>
+                <h1 class="header-subtitle">JavaScript基础第四天</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2023-01-01
+                            <i class="iconfont icon-time"></i> 发表时间：2024-03-03
                         </span>
                         
                             
-                                <span id="/2023/01/01/Javascript基础第五天/" class="leancloud_visitors" data-flag-title="">
+                                <span id="/2024/03/03/Javascript基础第五天/" class="leancloud_visitors" data-flag-title="JavaScript基础第四天">
                                     <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                                 </span>
                             
                             
                                 <span>
-                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2023/01/01/Javascript基础第五天/"></span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/03/03/Javascript基础第五天/"></span>
                                 </span>
                               
                         
@@ -70,16 +70,12 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <h1 id="JavaScript-基础-第5天"><a href="#JavaScript-基础-第5天" class="headerlink" title="JavaScript 基础 - 第5天"></a>JavaScript 基础 - 第5天</h1><blockquote>
-<p>知道对象数据类型的特征，能够利用数组对象渲染页面</p>
-</blockquote>
+                <p>知道对象数据类型的特征，能够利用数组对象渲染页面</p>
 <ul>
 <li>理解什么是对象，掌握定义对象的语法</li>
 <li>掌握数学对象的使用</li>
 </ul>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><blockquote>
-<p>对象是 JavaScript 数据类型的一种，之前已经学习了数值类型、字符串类型、布尔类型、undefined。对象数据类型可以被理解成是一种数据集合。它由属性和方法两部分构成。</p>
-</blockquote>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象是 JavaScript 数据类型的一种，之前已经学习了数值类型、字符串类型、布尔类型、undefined。对象数据类型可以被理解成是一种数据集合。它由属性和方法两部分构成。</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>声明一个对象类型的变量与之前声明一个数值或字符串类型的变量没有本质上的区别。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>JavaScript 基础 - 对象语法<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 声明字符串类型变量</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> str = <span class="string">&#x27;hello world!&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 声明数值类型变量</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> num = <span class="number">199</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 声明对象类型变量，使用一对花括号</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// user 便是一个对象了，目前它是一个空对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">let</span> user = &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -179,7 +175,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>Live For Code
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/2023/01/01/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%94%E5%A4%A9/" target="_blank"></a>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/03/03/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%94%E5%A4%A9/" target="_blank">JavaScript基础第四天</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
         <br>
@@ -194,9 +190,11 @@
                 
                 <div class="article-prev-next">
                     
-                        <a href="/2024/03/02/hello-world/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/03/02/hello-world/" title="发布于 2024-03-02 12:58">Hello World</a>
+                        <a href="/2024/03/03/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/03/03/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="发布于 2024-03-03 12:43">JavaScript基础第二天</a>
                         <br>
                     
+                    
+                        <a href="/2024/03/03/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E5%9B%9B%E5%A4%A9/" class="next-prefix">» </a> 下一篇：    <a href="/2024/03/03/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="发布于 2024-03-03 12:43">JavaScript基础第四天</a>
                     
                 </div>
             </div>
