@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle"></h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2023-01-10
+                        </span>
+                        
+                            
+                                <span id="/2023/01/10/Javascript基础第二天笔记/" class="leancloud_visitors" data-flag-title="">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2023/01/10/Javascript基础第二天笔记/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="JavaScript-基础-第2天"><a href="#JavaScript-基础-第2天" class="headerlink" title="JavaScript 基础 - 第2天"></a>JavaScript 基础 - 第2天</h1><blockquote>
+<p>理解什么是流程控制，知道条件控制的种类并掌握其对应的语法规则，具备利用循环编写简易ATM取款机程序能力</p>
+</blockquote>
+<ul>
+<li>运算符</li>
+<li>语句</li>
+<li>综合案例</li>
+</ul>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>数字是用来计算的，比如：乘法 * 、除法 &#x2F; 、加法 + 、减法 - 等等，所以经常和算术运算符一起。</p>
+<p>算术运算符：也叫数学运算符，主要包括加、减、乘、除、取余（求模）等</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>-</td>
+<td>求差</td>
+</tr>
+<tr>
+<td>*</td>
+<td>求积</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>求商</td>
+</tr>
+<tr>
+<td><strong>%</strong></td>
+<td>取模（取余数），开发中经常用于作为某个数字是否被整除</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：在计算失败时，显示的结果是 NaN （not a number）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 算术运算符</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> + <span class="number">2</span> * <span class="number">3</span> / <span class="number">2</span>) <span class="comment">//  4 </span></span><br><span class="line"><span class="keyword">let</span> num = <span class="number">10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num + <span class="number">10</span>)  <span class="comment">// 20</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num + num)  <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 取模(取余数)  使用场景：  用来判断某个数是否能够被整除</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span> % <span class="number">2</span>) <span class="comment">//  0  </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">6</span> % <span class="number">3</span>) <span class="comment">//  0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span> % <span class="number">3</span>) <span class="comment">//  2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> % <span class="number">5</span>) <span class="comment">//  3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 注意事项 : 如果我们计算失败，则返回的结果是 NaN (not a number)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;pink老师&#x27;</span> - <span class="number">2</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;pink老师&#x27;</span> * <span class="number">2</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;pink老师&#x27;</span> + <span class="number">2</span>)   <span class="comment">// pink老师2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>赋值运算符：对变量进行赋值的运算符</p>
+<p> &#x3D;     将等号右边的值赋予给左边, 要求左边必须是一个容器</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+&#x3D;</td>
+<td>加法赋值</td>
+</tr>
+<tr>
+<td>-+</td>
+<td>减法赋值</td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>乘法赋值</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>除法赋值</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>取余赋值</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">1</span></span><br><span class="line"><span class="comment">// num = num + 1</span></span><br><span class="line"><span class="comment">// 采取赋值运算符</span></span><br><span class="line"><span class="comment">// num += 1</span></span><br><span class="line">num += <span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自增-自减运算符"><a href="#自增-自减运算符" class="headerlink" title="自增&#x2F;自减运算符"></a>自增&#x2F;自减运算符</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>++</td>
+<td>自增</td>
+<td>变量自身的值加1，例如: x++</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减</td>
+<td>变量自身的值减1，例如: x–</td>
+</tr>
+</tbody></table>
+<ol>
+<li>++在前和++在后在单独使用时二者并没有差别，而且一般开发中我们都是独立使用</li>
+<li>++在后（后缀式）我们会使用更多</li>
+</ol>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>只有变量能够使用自增和自减运算符</li>
+<li>++、– 可以在变量前面也可以在变量后面，比如: x++  或者  ++x</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// let num = 10</span></span><br><span class="line">    <span class="comment">// num = num + 1</span></span><br><span class="line">    <span class="comment">// num += 1</span></span><br><span class="line">    <span class="comment">// // 1. 前置自增</span></span><br><span class="line">    <span class="comment">// let i = 1</span></span><br><span class="line">    <span class="comment">// ++i</span></span><br><span class="line">    <span class="comment">// console.log(i)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// let i = 1</span></span><br><span class="line">    <span class="comment">// console.log(++i + 1)</span></span><br><span class="line">    <span class="comment">// 2. 后置自增</span></span><br><span class="line">    <span class="comment">// let i = 1</span></span><br><span class="line">    <span class="comment">// i++</span></span><br><span class="line">    <span class="comment">// console.log(i)</span></span><br><span class="line">    <span class="comment">// let i = 1</span></span><br><span class="line">    <span class="comment">// console.log(i++ + 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 了解 </span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i++ + ++i + i)</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>使用场景：比较两个数据大小、是否相等，根据比较结果返回一个布尔值（true &#x2F; false）</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>左边是否大于右边</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>左边是否小于右边</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>左边是否大于或等于右边</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>左边是否小于或等于右边</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;&#x3D;</td>
+<td>左右两边是否<code>类型</code>和<code>值</code>都相等（重点）</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;</td>
+<td>左右两边<code>值</code>是否相等</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>左右值不相等</td>
+</tr>
+<tr>
+<td>!&#x3D;&#x3D;</td>
+<td>左右两边是否不全等</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &gt; <span class="number">5</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &gt;= <span class="number">3</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span> == <span class="number">2</span>)</span><br><span class="line">  <span class="comment">// 比较运算符有隐式转换 把&#x27;2&#x27; 转换为 2  双等号 只判断值</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span> == <span class="string">&#x27;2&#x27;</span>)  <span class="comment">// true</span></span><br><span class="line">  <span class="comment">// console.log(undefined === null)</span></span><br><span class="line">  <span class="comment">// === 全等 判断 值 和 数据类型都一样才行</span></span><br><span class="line">  <span class="comment">// 以后判断是否相等 请用 ===  </span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span> === <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// NaN 不等于任何人，包括他自己</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span> !== <span class="string">&#x27;2&#x27;</span>)  <span class="comment">// true  </span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span> != <span class="string">&#x27;2&#x27;</span>) <span class="comment">// false </span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-------------------------&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a&#x27;</span> &lt; <span class="string">&#x27;b&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;aa&#x27;</span> &lt; <span class="string">&#x27;ab&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;aa&#x27;</span> &lt; <span class="string">&#x27;aac&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-------------------------&#x27;</span>)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>使用场景：可以把多个布尔值放到一起运算，最终返回一个布尔值</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>名称</th>
+<th>日常读法</th>
+<th>特点</th>
+<th>口诀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>逻辑与</td>
+<td>并且</td>
+<td>符号两边有一个假的结果为假</td>
+<td>一假则假</td>
+</tr>
+<tr>
+<td>||</td>
+<td>逻辑或</td>
+<td>或者</td>
+<td>符号两边有一个真的结果为真</td>
+<td>一真则真</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑非</td>
+<td>取反</td>
+<td>true变false  false变true</td>
+<td>真变假，假变真</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A &amp;&amp; B</th>
+<th>A || B</th>
+<th>!A</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 逻辑与 一假则假</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">true</span> &amp;&amp; <span class="literal">true</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">false</span> &amp;&amp; <span class="literal">true</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &lt; <span class="number">5</span> &amp;&amp; <span class="number">3</span> &gt; <span class="number">2</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &lt; <span class="number">5</span> &amp;&amp; <span class="number">3</span> &lt; <span class="number">2</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----------------&#x27;</span>)</span><br><span class="line">    <span class="comment">// 逻辑或 一真则真</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">true</span> || <span class="literal">true</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">false</span> || <span class="literal">true</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">false</span> || <span class="literal">false</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----------------&#x27;</span>)</span><br><span class="line">    <span class="comment">// 逻辑非  取反</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(!<span class="literal">true</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(!<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----------------&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> num = <span class="number">6</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num &gt; <span class="number">5</span> &amp;&amp; num &lt; <span class="number">10</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----------------&#x27;</span>)</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p> <img src="D:/2023%E8%A7%86%E9%A2%91/javascript%E5%9F%BA%E7%A1%80/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E5%A4%A9/02-%E7%AC%94%E8%AE%B0/assets/1671016521031.png" alt="67101652103"></p>
+<blockquote>
+<p>逻辑运算符优先级： ！&gt; &amp;&amp; &gt;  ||  </p>
+</blockquote>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h3><p><img src="/assets/1671017924981.png" alt="67101792498"></p>
+<h3 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h3><p>分支语句可以根据条件判定真假，来选择性的执行想要的代码</p>
+<p>分支语句包含：</p>
+<ol>
+<li>if分支语句（重点）</li>
+<li>三元运算符</li>
+<li>switch语句</li>
+</ol>
+<h4 id="if-分支语句"><a href="#if-分支语句" class="headerlink" title="if 分支语句"></a>if 分支语句</h4><p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式) &#123;</span><br><span class="line">  <span class="comment">// 满足条件要执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>小括号内的条件结果是布尔值，为 true 时，进入大括号里执行代码；为false，则不执行大括号里面代码</p>
+<p>小括号内的结果若不是布尔类型时，会发生类型转换为布尔值，类似Boolean()</p>
+<p>如果大括号只有一个语句，大括号可以省略，但是，俺们不提倡这么做~</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 单分支语句</span></span><br><span class="line">    <span class="comment">// if (false) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// if (3 &gt; 5) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// if (2 === &#x27;2&#x27;) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">//  1. 除了0 所有的数字都为真</span></span><br><span class="line">    <span class="comment">//   if (0) &#123;</span></span><br><span class="line">    <span class="comment">//     console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">//   &#125;</span></span><br><span class="line">    <span class="comment">// 2.除了 &#x27;&#x27; 所有的字符串都为真 true</span></span><br><span class="line">    <span class="comment">// if (&#x27;pink老师&#x27;) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// if (&#x27;&#x27;) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// // if (&#x27;&#x27;) console.log(&#x27;执行语句&#x27;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 用户输入</span></span><br><span class="line">    <span class="keyword">let</span> score = +<span class="title function_">prompt</span>(<span class="string">&#x27;请输入成绩&#x27;</span>)</span><br><span class="line">    <span class="comment">// 2. 进行判断输出</span></span><br><span class="line">    <span class="keyword">if</span> (score &gt;= <span class="number">700</span>) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">&#x27;恭喜考入黑马程序员&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;-----------------&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="if双分支语句"><a href="#if双分支语句" class="headerlink" title="if双分支语句"></a>if双分支语句</h4><p>如果有两个条件的时候，可以使用 if else 双分支语句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (条件表达式)&#123;</span><br><span class="line">  <span class="comment">// 满足条件要执行的语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 不满足条件要执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   <span class="comment">// 1. 用户输入</span></span><br><span class="line">   <span class="keyword">let</span> uname = <span class="title function_">prompt</span>(<span class="string">&#x27;请输入用户名:&#x27;</span>)</span><br><span class="line">   <span class="keyword">let</span> pwd = <span class="title function_">prompt</span>(<span class="string">&#x27;请输入密码:&#x27;</span>)</span><br><span class="line">   <span class="comment">// 2. 判断输出</span></span><br><span class="line">   <span class="keyword">if</span> (uname === <span class="string">&#x27;pink&#x27;</span> &amp;&amp; pwd === <span class="string">&#x27;123456&#x27;</span>) &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;恭喜登录成功&#x27;</span>)</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;用户名或者密码错误&#x27;</span>)</span><br><span class="line">   &#125;</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-多分支语句"><a href="#if-多分支语句" class="headerlink" title="if 多分支语句"></a>if 多分支语句</h4><p>使用场景： 适合于有多个条件的时候</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   <span class="comment">// 1. 用户输入</span></span><br><span class="line">   <span class="keyword">let</span> score = +<span class="title function_">prompt</span>(<span class="string">&#x27;请输入成绩：&#x27;</span>)</span><br><span class="line">   <span class="comment">// 2. 判断输出</span></span><br><span class="line">   <span class="keyword">if</span> (score &gt;= <span class="number">90</span>) &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;成绩优秀，宝贝，你是我的骄傲&#x27;</span>)</span><br><span class="line">   &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">70</span>) &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;成绩良好，宝贝，你要加油哦~~&#x27;</span>)</span><br><span class="line">   &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;成绩及格，宝贝，你很危险~&#x27;</span>)</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&#x27;成绩不及格，宝贝，我不想和你说话，我只想用鞭子和你说话~&#x27;</span>)</span><br><span class="line">   &#125;</span><br><span class="line"> &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="三元运算符（三元表达式）"><a href="#三元运算符（三元表达式）" class="headerlink" title="三元运算符（三元表达式）"></a>三元运算符（三元表达式）</h4><p><strong>使用场景</strong>： 一些简单的双分支，可以使用  三元运算符（三元表达式），写起来比 if  else双分支 更简单</p>
+<p><strong>符号</strong>：? 与 : 配合使用</p>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">条件 ? 表达式<span class="number">1</span> ： 表达式<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三元运算符（三元表达式）</span></span><br><span class="line"><span class="comment">// 1. 语法格式</span></span><br><span class="line"><span class="comment">// 条件 ? 表达式1 : 表达式2 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 执行过程 </span></span><br><span class="line"><span class="comment">// 2.1 如果条件为真，则执行表达式1</span></span><br><span class="line"><span class="comment">// 2.2 如果条件为假，则执行表达式2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 验证</span></span><br><span class="line"><span class="comment">// 5 &gt; 3 ? &#x27;真的&#x27; : &#x27;假的&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span> &lt; <span class="number">3</span> ? <span class="string">&#x27;真的&#x27;</span> : <span class="string">&#x27;假的&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// let age = 18 </span></span><br><span class="line"><span class="comment">// age = age + 1</span></span><br><span class="line"><span class="comment">//  age++</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 用户输入 </span></span><br><span class="line"><span class="keyword">let</span> num = <span class="title function_">prompt</span>(<span class="string">&#x27;请您输入一个数字:&#x27;</span>)</span><br><span class="line"><span class="comment">// 2. 判断输出- 小于10才补0</span></span><br><span class="line"><span class="comment">// num = num &lt; 10 ? 0 + num : num</span></span><br><span class="line">num = num &gt;= <span class="number">10</span> ? num : <span class="number">0</span> + num</span><br><span class="line"><span class="title function_">alert</span>(num)</span><br></pre></td></tr></table></figure>
+
+<h4 id="switch语句（了解）"><a href="#switch语句（了解）" class="headerlink" title="switch语句（了解）"></a>switch语句（了解）</h4><p>使用场景： 适合于有多个条件的时候，也属于分支语句，大部分情况下和 if多分支语句 功能相同</p>
+<p>注意：</p>
+<ol>
+<li>switch case语句一般用于等值判断, if适合于区间判断</li>
+<li>switchcase一般需要配合break关键字使用 没有break会造成case穿透</li>
+<li>if 多分支语句开发要比switch更重要，使用也更多</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// switch分支语句</span></span><br><span class="line"><span class="comment">// 1. 语法</span></span><br><span class="line"><span class="comment">// switch (表达式) &#123;</span></span><br><span class="line"><span class="comment">//   case 值1:</span></span><br><span class="line"><span class="comment">//     代码1</span></span><br><span class="line"><span class="comment">//     break</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   case 值2:</span></span><br><span class="line"><span class="comment">//     代码2</span></span><br><span class="line"><span class="comment">//     break</span></span><br><span class="line"><span class="comment">//   ...</span></span><br><span class="line"><span class="comment">//   default:</span></span><br><span class="line"><span class="comment">//     代码n</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">switch</span> (<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;您选择的是1&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>  <span class="comment">// 退出switch</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;您选择的是2&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>  <span class="comment">// 退出switch</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;您选择的是3&#x27;</span>)</span><br><span class="line">    <span class="keyword">break</span>  <span class="comment">// 退出switch</span></span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;没有符合条件的&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h4><p><strong>作用：</strong>学习时可以帮助更好的理解代码运行，工作时可以更快找到bug</p>
+<p>浏览器打开调试界面</p>
+<ol>
+<li>按F12打开开发者工具</li>
+<li>点到源代码一栏 （ sources ）</li>
+<li>选择代码文件</li>
+</ol>
+<p><strong>断点：</strong>在某句代码上加的标记就叫断点，当程序执行到这句有标记的代码时会暂停下来</p>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>使用场景：重复执行 指定的一段代码，比如我们想要输出10次 ‘我学的很棒’</p>
+<p>学习路径：</p>
+<p>1.while循环</p>
+<p>2.for 循环（重点）</p>
+<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><p>while :  在…. 期间， 所以 while循环 就是在满足条件期间，重复执行某些代码。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (条件表达式) &#123;</span><br><span class="line">   <span class="comment">// 循环体    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// while循环: 重复执行代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 需求: 利用循环重复打印3次 &#x27;月薪过万不是梦，毕业时候见英雄&#x27;</span></span><br><span class="line"><span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> (i &lt;= <span class="number">3</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;月薪过万不是梦，毕业时候见英雄~&lt;br&gt;&#x27;</span>)</span><br><span class="line">  i++   <span class="comment">// 这里千万不要忘了变量自增否则造成死循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>循环三要素：</p>
+<p>1.初始值 （经常用变量）</p>
+<p>2.终止条件</p>
+<p>3.变量的变化量</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// // 1. 变量的起始值</span></span><br><span class="line">  <span class="comment">// let i = 1</span></span><br><span class="line">  <span class="comment">// // 2. 终止条件</span></span><br><span class="line">  <span class="comment">// while (i &lt;= 3) &#123;</span></span><br><span class="line">  <span class="comment">//   document.write(&#x27;我要循环三次 &lt;br&gt;&#x27;)</span></span><br><span class="line">  <span class="comment">//   // 3. 变量的变化量</span></span><br><span class="line">  <span class="comment">//   i++</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">// 1. 变量的起始值</span></span><br><span class="line">  <span class="keyword">let</span> end = +<span class="title function_">prompt</span>(<span class="string">&#x27;请输入次数:&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line"><span class="comment">// 2. 终止条件</span></span><br><span class="line"><span class="keyword">while</span> (i &lt;= end) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;我要循环三次 &lt;br&gt;&#x27;</span>)</span><br><span class="line">  <span class="comment">// 3. 变量的变化量</span></span><br><span class="line">  i++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="中止循环"><a href="#中止循环" class="headerlink" title="中止循环"></a>中止循环</h4><p><code>break</code>   中止整个循环，一般用于结果已经得到, 后续的循环不需要的时候可以使用（提高效率）  </p>
+<p><code>continue</code>  中止本次循环，一般用于排除或者跳过某一个选项的时候</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// let i = 1</span></span><br><span class="line">    <span class="comment">// while (i &lt;= 5) &#123;</span></span><br><span class="line">    <span class="comment">//   console.log(i)</span></span><br><span class="line">    <span class="comment">//   if (i === 3) &#123;</span></span><br><span class="line">    <span class="comment">//     break  // 退出循环</span></span><br><span class="line">    <span class="comment">//   &#125;</span></span><br><span class="line">    <span class="comment">//   i++</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">3</span>) &#123;</span><br><span class="line">        i++</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">      i++</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="无限循环"><a href="#无限循环" class="headerlink" title="无限循环"></a>无限循环</h4><p>1.while(true) 来构造“无限”循环，需要使用break退出循环。（常用）</p>
+<p>2.for(;;) 也可以来构造“无限”循环，同样需要使用break退出循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无限循环  </span></span><br><span class="line"><span class="comment">// 需求： 页面会一直弹窗询问你爱我吗？</span></span><br><span class="line"><span class="comment">// (1). 如果用户输入的是 &#x27;爱&#x27;，则退出弹窗</span></span><br><span class="line"><span class="comment">// (2). 否则一直弹窗询问</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. while(true) 无限循环</span></span><br><span class="line"><span class="comment">// while (true) &#123;</span></span><br><span class="line"><span class="comment">//   let love = prompt(&#x27;你爱我吗?&#x27;)</span></span><br><span class="line"><span class="comment">//   if (love === &#x27;爱&#x27;) &#123;</span></span><br><span class="line"><span class="comment">//     break</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. for(;;) 无限循环</span></span><br><span class="line"><span class="keyword">for</span> (; ;) &#123;</span><br><span class="line">  <span class="keyword">let</span> love = <span class="title function_">prompt</span>(<span class="string">&#x27;你爱我吗?&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> (love === <span class="string">&#x27;爱&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="综合案例-ATM存取款机"><a href="#综合案例-ATM存取款机" class="headerlink" title="综合案例-ATM存取款机"></a>综合案例-ATM存取款机</h2><p><img src="/assets/1671018781557.png" alt="67101878155"></p>
+<p>分析：</p>
+<p>①：提示输入框写到循环里面（无限循环）</p>
+<p>②：用户输入4则退出循环 break</p>
+<p>③：提前准备一个金额预先存储一个数额 money</p>
+<p>④：根据输入不同的值，做不同的操作</p>
+<p>​     (1)  取钱则是减法操作， 存钱则是加法操作，查看余额则是直接显示金额</p>
+<p>​     (2) 可以使用 if else if 多分支 来执行不同的操作</p>
+<p>完整代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// 1. 开始循环 输入框写到 循环里面</span></span><br><span class="line">  <span class="comment">// 3. 准备一个总的金额</span></span><br><span class="line">  <span class="keyword">let</span> money = <span class="number">100</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> re = +<span class="title function_">prompt</span>(<span class="string">`</span></span><br><span class="line"><span class="string">请您选择操作：</span></span><br><span class="line"><span class="string">1.存钱</span></span><br><span class="line"><span class="string">2.取钱</span></span><br><span class="line"><span class="string">3.查看余额</span></span><br><span class="line"><span class="string">4.退出</span></span><br><span class="line"><span class="string">`</span>)</span><br><span class="line">  <span class="comment">// 2. 如果用户输入的 4 则退出循环， break  写到if 里面，没有写到switch里面， 因为4需要break退出循环</span></span><br><span class="line">  <span class="keyword">if</span> (re === <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 4. 根据输入做操作</span></span><br><span class="line">  <span class="keyword">switch</span> (re) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="comment">// 存钱</span></span><br><span class="line">      <span class="keyword">let</span> cun = +<span class="title function_">prompt</span>(<span class="string">&#x27;请输入存款金额&#x27;</span>)</span><br><span class="line">      money = money + cun</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="comment">// 存钱</span></span><br><span class="line">      <span class="keyword">let</span> qu = +<span class="title function_">prompt</span>(<span class="string">&#x27;请输入取款金额&#x27;</span>)</span><br><span class="line">      money = money - qu</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      <span class="comment">// 存钱</span></span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">`您的银行卡余额是<span class="subst">$&#123;money&#125;</span>`</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Live For Code">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Live For Code
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2023/01/10/Javascript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/" target="_blank"></a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>简单地活着, 肆意又精彩.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/03/02/hello-world/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/03/02/hello-world/" title="发布于 2024-03-02 12:58">Hello World</a>
+                        <br>
+                    
+                    
+                        <a href="/2023/01/01/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%89%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2023/01/01/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%89%E5%A4%A9%E7%AC%94%E8%AE%B0/" title="发布于 2023-01-01 09:41"></a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2020-2023 WorstOne. All Rights Reserved.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+            <div class="menu-notice">
+                <span class="iconfont icon-notice"></span>
+                <div class="notice">
+                    <span>简单地活着，肆意而又精彩！</span>
+                </div>
+            </div>
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="https://worstone.cn" target="_blank"><span>Live For Code</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/donate" class="" target="_self"><span class="iconfont icon-heart-fill"></span>赞赏</a></li>
+                    
+                        <li class=""><a href="/about" class="" target="_self"><span class="iconfont icon-about-fill"></span>关于</a></li>
+                    
+                        <li class=""><a href="/atom.xml" class="" target="_blank"><span class="iconfont icon-rss"></span>订阅</a></li>
+                    
+                        <li class=""><a href="javascript:;" class="search" target="_self"><span class="iconfont icon-search-menu"></span>搜索</a></li>
+                    
+                        <li class=""><a href="/comment" class="" target="_self"><span class="iconfont icon-comments-fill"></span>留言板</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="知乎" href="https://zhihu.com/people/worstone-29" class="" target="_blank" data=""><span class="iconfont icon-zhihu"></span></a>
+                
+                    <a name="微博" href="https://weibo.com/u/5749847477" class="" target="_blank" data=""><span class="iconfont icon-weibo"></span></a>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+                    <a name="微信" href="javascript:;" class="" target="_self" data=""><span class="iconfont icon-wechat"></span></a>
+                
+                    <a name="GitHub" href="https://github.com/first19326" class="" target="_blank" data=""><span class="iconfont icon-github"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "first19326",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Live For Code",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "https://worstone.cn",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Live For Code",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.jpeg",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : true,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "赞赏",
+                    icon   : "icon-heart-fill",
+                    href   : "/donate",
+                    type   : "donate",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "关于",
+                    icon   : "icon-about-fill",
+                    href   : "/about",
+                    type   : "about",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "订阅",
+                    icon   : "icon-rss",
+                    href   : "/atom.xml",
+                    type   : "",
+                    class  : "",
+                    target : "_blank"
+                },
+            
+                {
+                    name   : "搜索",
+                    icon   : "icon-search-menu",
+                    href   : "javascript:;",
+                    type   : "",
+                    class  : "search",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "留言板",
+                    icon   : "icon-comments-fill",
+                    href   : "/comment",
+                    type   : "comment",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "知乎",
+                        icon   : "icon-zhihu",
+                        href   : "https://zhihu.com/people/worstone-29",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+                    {
+                        name   : "微博",
+                        icon   : "icon-weibo",
+                        href   : "https://weibo.com/u/5749847477",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+                    {
+                        name   : "微信",
+                        icon   : "icon-wechat",
+                        href   : "javascript:;",
+                        class  : "",
+                        target : "_self",
+                        image  : ""
+                    },
+                
+                    {
+                        name   : "GitHub",
+                        icon   : "icon-github",
+                        href   : "https://github.com/first19326",
+                        class  : "",
+                        target : "_blank",
+                        image  : ""
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2020-2023 WorstOne. All Rights Reserved.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "简单地活着, 肆意又精彩."
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
